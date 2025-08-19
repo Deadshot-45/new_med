@@ -1,148 +1,14 @@
-import React, { useState } from "react";
-import {
-  Heart,
-  Shield,
-  Clock,
-  Star,
-  ShoppingCart,
-  Menu,
-  X,
-  Phone,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { Shield, Clock, Heart, Star, Phone, Mail, MapPin } from "lucide-react";
 import { products } from "../assets/products";
 import pharmacyTeamImage from "../assets/pharmacy_team.png"; // Adjust the path as necessary
 
-// Helper function to scroll to section
-const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
-const Home = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cart, setCart] = useState([]);
-
+const Home = ({ cart, setCart }) => {
   const addToCart = (product) => {
     setCart([...cart, product]);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-2">
-              <Heart className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">MediCare</span>
-            </div>
-
-            <nav className="hidden md:flex space-x-8">
-              <button
-                type="button"
-                onClick={() => scrollToSection("home")}
-                className="text-gray-700 hover:text-blue-600 transition-colors bg-transparent border-none outline-none cursor-pointer"
-              >
-                Home
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToSection("products")}
-                className="text-gray-700 hover:text-blue-600 transition-colors bg-transparent border-none outline-none cursor-pointer"
-              >
-                Products
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-blue-600 transition-colors bg-transparent border-none outline-none cursor-pointer"
-              >
-                About
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-700 hover:text-blue-600 transition-colors bg-transparent border-none outline-none cursor-pointer"
-              >
-                Contact
-              </button>
-            </nav>
-
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <ShoppingCart className="h-6 w-6 text-gray-700 cursor-pointer hover:text-blue-600" />
-                {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {cart.length}
-                  </span>
-                )}
-              </div>
-              <button
-                className="md:hidden"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-b shadow-lg">
-          <div className="px-4 py-2 space-y-2">
-            <button
-              type="button"
-              onClick={() => {
-                scrollToSection("home");
-                setIsMenuOpen(false);
-              }}
-              className="block py-2 text-gray-700 hover:text-blue-600 w-full text-left bg-transparent border-none outline-none cursor-pointer"
-            >
-              Home
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                scrollToSection("products");
-                setIsMenuOpen(false);
-              }}
-              className="block py-2 text-gray-700 hover:text-blue-600 w-full text-left bg-transparent border-none outline-none cursor-pointer"
-            >
-              Products
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                scrollToSection("about");
-                setIsMenuOpen(false);
-              }}
-              className="block py-2 text-gray-700 hover:text-blue-600 w-full text-left bg-transparent border-none outline-none cursor-pointer"
-            >
-              About
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                scrollToSection("contact");
-                setIsMenuOpen(false);
-              }}
-              className="block py-2 text-gray-700 hover:text-blue-600 w-full text-left bg-transparent border-none outline-none cursor-pointer"
-            >
-              Contact
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Hero Section */}
       <section
         id="home"
@@ -160,10 +26,10 @@ const Home = () => {
                 products, and expert guidance.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors hover:cursor-pointer">
                   Shop Now
                 </button>
-                <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors hover:cursor-pointer">
                   Learn More
                 </button>
               </div>
@@ -291,7 +157,7 @@ const Home = () => {
                       disabled={!product.inStock}
                       className={`px-6 py-2 rounded-full font-semibold transition-colors ${
                         product.inStock
-                          ? "bg-blue-600 text-white hover:bg-blue-700"
+                          ? "bg-blue-600 text-white hover:bg-blue-700 hover:cursor-pointer"
                           : "bg-gray-300 text-gray-500 cursor-not-allowed"
                       }`}
                     >
@@ -413,13 +279,13 @@ const Home = () => {
             exclusive offers
           </p>
 
-          <div className="max-w-md mx-auto flex gap-4">
+          <div className="max-w-md mx-auto flex max-md:flex-col max-md:w-2/3 gap-4">
             <input
               type="email"
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-full border border-white text-white focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors hover:cursor-pointer">
               Subscribe
             </button>
           </div>
@@ -462,8 +328,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 };
