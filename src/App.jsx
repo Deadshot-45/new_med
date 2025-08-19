@@ -1,9 +1,9 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './Pages/Home'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Footer from "./common/Footer";
 
-
-const About = () => <h2>About Page</h2>
+const About = () => <h2>About Page</h2>;
 
 const App = () => {
   return (
@@ -11,9 +11,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-      </Routes>
-    </Router>
-  )
-}
 
-export default App
+        
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
+
+export default App;
