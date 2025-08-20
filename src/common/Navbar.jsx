@@ -14,7 +14,7 @@ const Navbar = ({ cartCount, isMenuOpen, setIsMenuOpen, scrollToSection }) => (
       <div className="flex justify-between items-center py-4">
         <div className="flex items-center space-x-2">
           <Heart className="h-8 w-8 text-blue-600" />
-          <span className="text-2xl font-bold text-gray-900">MediCare</span>
+          <span className="text-2xl max-sm:text-xl font-bold text-gray-900">ENTIRE BIOTECH</span>
         </div>
         <nav className="hidden md:flex space-x-8">
           {navItems.map((item) => (
