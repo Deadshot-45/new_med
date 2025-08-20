@@ -51,7 +51,7 @@ const Home = ({ cart, setCart }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose MediCare?
+              Why Choose Entire Biotech?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We're committed to providing the highest quality healthcare
@@ -177,10 +177,10 @@ const Home = ({ cart, setCart }) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                About MediCare
+                About Entire Biotech
               </h2>
               <p className="text-gray-600 mb-6">
-                For over 25 years, MediCare has been a trusted name in
+                For over 25 years, Entire Biotech has been a trusted name in
                 healthcare, providing high-quality medicines and health products
                 to millions of customers worldwide. Our commitment to excellence
                 and patient safety drives everything we do.
@@ -237,12 +237,12 @@ const Home = ({ cart, setCart }) => {
             {[
               {
                 name: "Sarah Johnson",
-                text: "MediCare has been my go-to pharmacy for years. Their products are always authentic and delivery is incredibly fast.",
+                text: "Entire Biotech has been my go-to pharmacy for years. Their products are always authentic and delivery is incredibly fast.",
                 rating: 5,
               },
               {
                 name: "Dr. Michael Chen",
-                text: "As a healthcare professional, I trust MediCare for their quality standards and professional service.",
+                text: "As a healthcare professional, I trust Entire Biotech for their quality standards and professional service.",
                 rating: 5,
               },
               {
@@ -315,7 +315,7 @@ const Home = ({ cart, setCart }) => {
             <div className="text-center p-6">
               <Mail className="h-8 w-8 text-blue-600 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Email Us</h3>
-              <p className="text-gray-600">support@medicare.com</p>
+              <p className="text-gray-600">support@Entire Biotech.com</p>
               <p className="text-sm text-gray-500">24/7 Support</p>
             </div>
 
