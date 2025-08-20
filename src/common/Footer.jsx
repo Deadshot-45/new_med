@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const Link1 = [
-    { name: "About Us", path: "/" },
+    { name: "About Us", path: "/about" },
     { name: "Products", path: "/" },
-    { name: "Services", path: "/" },
+    { name: "Services", path: "/service" },
     { name: "Contact", path: "/" },
   ];
   const Link2 = [
@@ -18,7 +18,7 @@ const Footer = () => {
     { name: "Help Center", path: "/" },
     { name: "Shipping Info", path: "/" },
     { name: "Returns", path: "/" },
-    { name: "Privacy Policy", path: "/" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
   ];
   return (
     <footer className="bg-gray-900 text-white py-12">
